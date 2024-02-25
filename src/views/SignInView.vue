@@ -3,6 +3,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { toast } from 'vue3-toastify';
+import { Icon } from '@iconify/vue';
 
 const router = useRouter()
 
@@ -45,19 +46,16 @@ const signIn = () => {
                     <form @submit.prevent="signIn" class="mx-auto max-w-xs">
                         <input :disabled="isSubmitting"
                             class="w-full px-5 py-4 rounded-lg font-medium bg-gray-50 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                            type="email" placeholder="Email" v-model="formData.email" required />
+                            type="email" placeholder="Email" v-model="formData.email" required autocomplete="username" />
                         <input :disabled="isSubmitting"
                             class="w-full px-5 py-4 rounded-lg font-medium bg-gray-50 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                            type="password" placeholder="Password" v-model="formData.password" required />
+                            type="password" placeholder="Password" v-model="formData.password" required
+                            autocomplete="current-password" />
                         <button type="submit" :disabled="isSubmitting"
                             class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
                             :class="{ 'bg-gray-500': isSubmitting }">
-                            <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                                <circle cx="8.5" cy="7" r="4" />
-                                <path d="M20 8v6M23 11h-6" />
-                            </svg>
+                            <Icon icon="svg-spinners:8-dots-rotate" :style="{ fontSize: '25px' }" v-if="isSubmitting" />
+                            <Icon icon="ic:round-login" :style="{ fontSize: '25px' }" v-if="!isSubmitting" />
                             <span class="ml-3">
                                 Sign In
                             </span>

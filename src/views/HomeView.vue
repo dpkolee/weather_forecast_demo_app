@@ -1,15 +1,26 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { getAuth, onAuthStateChanged, type Auth } from 'firebase/auth';
+import { onMounted, ref } from 'vue';
+import HomeComponent from '@/components/HomeComponent.vue';
+import HeaderComponent from '@/components/HeaderComponent.vue';
+
+const isUserLoggeddIn = ref(false)
+let auth: Auth;
+onMounted(async () => {
+  auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isUserLoggeddIn.value = true
+    } else {
+      isUserLoggeddIn.value = false
+    }
+  })
+})
 </script>
 
 <template>
-  <main>
-    <nav>
-      <router-link to="/"> Home </router-link> |
-      <router-link to="/sign-up"> Sign Up </router-link> |
-      <router-link to="/sign-in"> Login </router-link> |
-    </nav>
-    <p class="text-2xl xl:text-3xl font-extrabold">This is a Homepage</p>
-    <router-view />
-  </main>
+  <div class="bg-white">
+    <HeaderComponent />
+    <HomeComponent :is-user-loggedd-in="isUserLoggeddIn" />
+  </div>
 </template>

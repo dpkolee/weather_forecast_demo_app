@@ -30,10 +30,18 @@ const router = createRouter({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/profile/:location/:lat/:lon',
+      name: 'weatherDetail',
+      component: () => import('../views/SavedWeatherDetailView.vue'),
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })
-const getCurrentUser = () => {
+export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
     const removeListener = onAuthStateChanged(
       getAuth(),
@@ -53,7 +61,11 @@ router.beforeEach(async (to, _from, next) => {
       router.push('/')
     }
   } else {
-    next()
+    if (await getCurrentUser()) {
+      next()
+    } else {
+      next()
+    }
   }
 })
 
