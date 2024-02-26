@@ -15,7 +15,7 @@ const props = defineProps<{
     isUserLoggeddIn: boolean
 }>()
 
-const location = ref('kathmandu')
+const location = ref('')
 const weatherData = ref<WeatherResponseType | null>(null);
 const isLoading = ref(true)
 
@@ -105,7 +105,7 @@ onMounted(() => {
             <div class="py-5 flex gap-2">
                 <input @keyup="search" v-model="location" type="text"
                     class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                    placeholder="Enter Location..." />
+                    placeholder="Enter Location or city..." />
                 <button @click="handleSearch"
                     class="flex items-center text-xs font-semibold text-gray-900 bg-gray-50 py-1 px-2 ring-1 rounded-md ring-gray-900/10 hover:ring-gray-900/20">
                     <Icon icon="ic:round-search" :style="{ fontSize: '20px' }" />

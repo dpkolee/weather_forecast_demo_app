@@ -57,5 +57,13 @@ onMounted(async () => {
 
             </div>
         </div>
+        <div class="border border-red-500 border-dashed rounded-md mt-3 flex justify-center" v-if="!savedWeatherData">
+            <div class="flex flex-col items-center p-5">
+                <p class="font-bold text-justify">
+                    Data not available !
+                </p>
+                <p class="text-sm">Go to homepage and start saving some data to see results.</p>
+            </div>
+        </div>
     </main>
 </template>
