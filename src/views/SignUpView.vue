@@ -56,11 +56,11 @@ const signUp = () => {
                         <input :disabled="isSubmitting"
                             class="w-full px-5 py-4 rounded-lg font-medium bg-gray-50 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                             type="email" placeholder="Email" v-model="formData.email" required autocomplete="email" />
-                        <input :disabled="isSubmitting"
+                        <input :disabled="isSubmitting" name="password"
                             class="w-full px-5 py-4 rounded-lg font-medium bg-gray-50 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                             type="password" placeholder="Password" v-model="formData.password" required
                             autocomplete="new-password" />
-                        <input :disabled="isSubmitting"
+                        <input :disabled="isSubmitting" name="confirm-password"
                             class="w-full px-5 py-4 rounded-lg font-medium bg-gray-50 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                             type="password" placeholder="Confirm Password" v-model="formData.confirmPasword" required
                             autocomplete="confirm-password" />

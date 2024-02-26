@@ -42,7 +42,7 @@ const sunsetTime = computed(() => {
             </div>
             <div class="bg-slate-800 shadow-sm p-4 rounded-md flex flex-col justify-between">
                 <p class="text-white text-xm font-medium">
-                    pressure
+                    Pressure
                 </p>
                 <img src="../assets/icons/pressure.svg" class="mt-5 mx-auto h-auto w-32">
                 <div class="flex justify-center items-center my-2">

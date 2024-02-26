@@ -14,7 +14,8 @@ describe('Test cases for SignUpView.vue', () => {
     })
     // Check if email, password input fields and sign up button exist
     expect(wrapper.find('input[type="email"]').exists()).toBe(true)
-    expect(wrapper.find('input[type="password"]').exists()).toBe(true)
+    expect(wrapper.find('input[name="password"]').exists()).toBe(true)
+    expect(wrapper.find('input[name="confirm-password"]').exists()).toBe(true)
     expect(wrapper.find('button[type="submit"]').exists()).toBe(true)
     expect(wrapper.find('button[type="submit"]').text()).toContain('Sign Up')
   })
