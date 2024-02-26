@@ -4,9 +4,7 @@ This is a demo project build on [`Vue3`](https://vuejs.org/) using [`vite`](http
 
 ## Instructions to be considered before project setup
 
-```sh
 Copy firebase config credentials and openweather credentials from `.env.sample` file and create seperate `.env` file for this particular instance. Have a look at `.env.sample` for detail.
-```
 
 ## Project Setup
 
